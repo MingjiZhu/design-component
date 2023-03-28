@@ -12,7 +12,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 Use Tailwind UI for layout and use free Mantine components 
 
 ### Pros 
-- Many ready to use components
+- Various component options
 - Structred docs
-- 
+- Ready-to-use hooks
+- Storybook
+- Easy to customize
+- Frequent update and bug fixes because the team uses it internally
+
+### Cons
+- className is buggy when it is used on Mantine components
 

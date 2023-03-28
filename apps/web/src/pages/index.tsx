@@ -53,6 +53,7 @@ export default function Home() {
         </h1>
         <Grid mt="lg" grow>
           <Grid.Col span={8}>
+            {/* can add classname on Mantine Components */}
             <Text
               variant="gradient"
               gradient={{ from: "indigo", to: "cyan", deg: 45 }}
@@ -60,6 +61,7 @@ export default function Home() {
               ta="center"
               fz="xl"
               fw={700}
+              className="ml-2"
             >
               Your system color scheme is {colorScheme}
             </Text>
@@ -72,6 +74,7 @@ export default function Home() {
               onChange={() => {
                 toggleColorScheme();
               }}
+              className="mt-2"
             />
           </Grid.Col>
         </Grid>
