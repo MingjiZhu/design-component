@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Button } from "ui";
+import { CustomButton } from "ui";
 
 export default function Home() {
   return (
@@ -16,7 +16,6 @@ export default function Home() {
           </span>
         </h1>
         <div className="mx-auto mt-5 max-w-xl sm:flex sm:justify-center md:mt-8">
-          <Button />
         </div>
       </main>
     </div>

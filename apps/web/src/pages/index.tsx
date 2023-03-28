@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Button } from "ui";
+import { CustomButton } from "ui";
 import {
   Button as MantineButton,
   Title,
@@ -21,7 +21,7 @@ import {
   IconHanger,
   IconArrowDown,
 } from "@tabler/icons-react";
-import { CustomButton } from "./MantineButtons";
+// import { CustomButton } from "./MantineButtons";
 import { useScrollIntoView, useOs } from "@mantine/hooks";
 import { useDebouncedState } from "@mantine/hooks";
 
