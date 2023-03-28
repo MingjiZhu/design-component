@@ -1,29 +1,27 @@
-import Head from "next/head";
-import { CustomButton } from "ui";
 import {
   Button as MantineButton,
-  Title,
-  createStyles,
-  Group,
-  Tabs,
-  ThemeIcon,
   Card,
   Center,
-  TextInput,
-  Text,
+  createStyles,
   Grid,
+  Group,
   Switch,
+  Tabs,
+  Text,
+  TextInput,
+  ThemeIcon,
+  Title,
   useMantineColorScheme,
 } from "@mantine/core";
+import { useDebouncedState, useOs, useScrollIntoView } from "@mantine/hooks";
 import {
-  IconPlayCard,
-  IconNotification,
-  IconHanger,
   IconArrowDown,
+  IconHanger,
+  IconNotification,
+  IconPlayCard,
 } from "@tabler/icons-react";
-// import { CustomButton } from "./MantineButtons";
-import { useScrollIntoView, useOs } from "@mantine/hooks";
-import { useDebouncedState } from "@mantine/hooks";
+import Head from "next/head";
+import { CustomButton } from "ui";
 
 const useStyles = createStyles((theme) => {
   return {
@@ -34,13 +32,14 @@ const useStyles = createStyles((theme) => {
 });
 
 export default function Home() {
-  const { classes, cx } = useStyles();
   const os = useOs();
+
+  const { classes, cx } = useStyles();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 60,
   });
-  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
-  const dark = colorScheme === "dark";
+
   const [value, setValue] = useDebouncedState("", 200);
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
@@ -235,7 +234,6 @@ export default function Home() {
                 defaultValue={value}
                 onChange={(event) => setValue(event.currentTarget.value)}
               />
-
               <Text>Debounced value: {value}</Text>
             </>
           </Tabs.Panel>
