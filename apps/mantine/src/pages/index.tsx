@@ -44,7 +44,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center py-2">
       <Head>
-        <title>Web - Mantine Explore</title>
+        <title>Mantine Explore</title>
       </Head>
 
       <main className="mx-auto w-auto px-4 mt-10 pb-8 sm:pt-24 lg:px-8">
