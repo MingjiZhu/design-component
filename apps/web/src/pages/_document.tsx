@@ -1,3 +1,4 @@
+import { createGetInitialProps } from '@mantine/next';
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -6,6 +7,10 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
+import { ServerStyles, createStylesServer } from '@mantine/next';
+import { rtlCache } from '../../rtl-cache';
+
+const stylesServer = createStylesServer(rtlCache);
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -13,7 +18,13 @@ class MyDocument extends Document {
   ): Promise<DocumentInitialProps> {
     const initialProps = await Document.getInitialProps(ctx);
 
-    return initialProps;
+    return {
+      ...initialProps,
+      styles: [
+        initialProps.styles,
+        <ServerStyles html={initialProps.html} server={stylesServer} key="styles" />,
+      ],
+    };
   }
 
   render() {
