@@ -1,4 +1,4 @@
-import { createGetInitialProps } from '@mantine/next';
+import { createGetInitialProps } from "@mantine/next";
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -7,8 +7,8 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { ServerStyles, createStylesServer } from '@mantine/next';
-import { rtlCache } from '../../rtl-cache';
+import { ServerStyles, createStylesServer } from "@mantine/next";
+import { rtlCache } from "../../rtl-cache";
 
 const stylesServer = createStylesServer(rtlCache);
 
@@ -22,14 +22,18 @@ class MyDocument extends Document {
       ...initialProps,
       styles: [
         initialProps.styles,
-        <ServerStyles html={initialProps.html} server={stylesServer} key="styles" />,
+        <ServerStyles
+          html={initialProps.html}
+          server={stylesServer}
+          key="styles"
+        />,
       ],
     };
   }
 
   render() {
     return (
-      <Html className="bg-zinc-900">
+      <Html>
         <Head />
         <body>
           <Main />

@@ -105,10 +105,19 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           dir: "rtl",
           spacing: {
             xs: "2px",
+            sm: "5px",
             md: "10px",
+            lg: "15px",
             xl: "20px",
           },
           colorScheme,
+          breakpoints: {
+            xs: "500",
+            sm: "800",
+            md: "1000",
+            lg: "1200",
+            xl: "1400",
+          },
         }}
       >
         <Component {...pageProps} />

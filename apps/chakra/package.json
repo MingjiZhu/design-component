@@ -1,0 +1,37 @@
+{
+  "name": "chakra",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.5.4",
+    "@emotion/react": "^11.10.6",
+    "@emotion/server": "^11.10.0",
+    "@emotion/styled": "^11.10.6",
+    "@tabler/icons-react": "^2.11.0",
+    "class-variance-authority": "^0.4.0",
+    "framer-motion": "^10.9.2",
+    "next": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "stylis-plugin-rtl": "^2.1.1",
+    "ui": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "autoprefixer": "^10.4.13",
+    "eslint-config-custom": "workspace:*",
+    "postcss": "^8.4.20",
+    "tailwind-config": "workspace:*",
+    "tailwindcss": "^3.2.4",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.4"
+  }
+}

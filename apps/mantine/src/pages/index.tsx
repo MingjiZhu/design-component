@@ -12,8 +12,14 @@ import {
   ThemeIcon,
   Title,
   useMantineColorScheme,
+  useMantineTheme,
 } from "@mantine/core";
-import { useDebouncedState, useOs, useScrollIntoView } from "@mantine/hooks";
+import {
+  useDebouncedState,
+  useOs,
+  useScrollIntoView,
+  useViewportSize,
+} from "@mantine/hooks";
 import {
   IconArrowDown,
   IconHanger,
@@ -21,24 +27,46 @@ import {
   IconPlayCard,
 } from "@tabler/icons-react";
 import Head from "next/head";
-import { CustomButton } from "ui";
+import { CustomMantineButton } from "ui";
 
 const useStyles = createStyles((theme) => {
   return {
-    title: {
+    tabTitle: {
       margin: theme.spacing.md,
+    },
+    responsiveButton: {
+      [`@media (max-width: ${theme.breakpoints.md}px)`]: {
+        background: "green",
+        fontSize: theme.fontSizes.xs,
+        width: "120px",
+        height: "25px",
+      },
+      [`@media (min-width: ${theme.breakpoints.xs}px)`]: {
+        background: "purple",
+        fontSize: theme.fontSizes.md,
+        width: "200px",
+        height: "30px",
+      },
+      [`@media (min-width: ${theme.breakpoints.lg}px)`]: {
+        background: "pink",
+        fontSize: theme.fontSizes.lg,
+        width: "300px",
+        height: "50px",
+      },
     },
   };
 });
 
 export default function Home() {
   const os = useOs();
+  const theme = useMantineTheme();
 
   const { classes, cx } = useStyles();
   const { colorScheme, toggleColorScheme } = useMantineColorScheme();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     offset: 60,
   });
+  const { width } = useViewportSize();
 
   const [value, setValue] = useDebouncedState("", 200);
   return (
@@ -53,7 +81,7 @@ export default function Home() {
         </h1>
         <Grid mt="lg" grow>
           <Grid.Col span={8}>
-            {/* can add classname on Mantine Components */}
+            {/* can add classname on Mantine Components but does not work/support most classes*/}
             <Text
               variant="gradient"
               gradient={{ from: "indigo", to: "cyan", deg: 45 }}
@@ -79,7 +107,11 @@ export default function Home() {
           </Grid.Col>
         </Grid>
 
-        <div className="text-center mt-4">
+        {/* 
+          Note, there can only pass code color, when hover, 
+          theme.fn.darken in this component will result black color when using color scheme
+          */}
+        <div className="text-center m-5">
           <MantineButton
             variant="light"
             leftIcon={
@@ -101,54 +133,31 @@ export default function Home() {
             Scroll to Card
           </MantineButton>
         </div>
-        <Title className={cx(classes.title)} order={5}>
+        <Title order={5} mt="lg" mb="md">
+          Responsive Button
+        </Title>
+        <MantineButton className={cx(classes.responsiveButton)}>{`${
+          width < Number(theme.breakpoints.xs) ? "Small" : "Big"
+        } Button`}</MantineButton>
+        <Title order={5} mt="lg" mb="md">
           Custom Buttons
         </Title>
-        <Group>
-          <CustomButton intent="primary">Primary</CustomButton>
-          <CustomButton intent="secondary">Secondary</CustomButton>
-          <CustomButton intent="danger">Danger</CustomButton>
-          <CustomButton intent="warning">Warning</CustomButton>
-          <CustomButton intent="success">Success</CustomButton>
-          <CustomButton intent="light">Light</CustomButton>
-        </Group>
-        <Group mt="lg">
-          <CustomButton size="xs">xs</CustomButton>
-          <CustomButton size="sm">sm</CustomButton>
-          <CustomButton size="md">md</CustomButton>
-          <CustomButton size="lg">lg</CustomButton>
-          <CustomButton size="xl">xl</CustomButton>
-        </Group>
-        <Group mt="lg">
-          <CustomButton intent="primary" variant="outline">
-            Primary
-          </CustomButton>
-          <CustomButton intent="secondary" variant="outline">
-            Secondary
-          </CustomButton>
-          <CustomButton intent="danger" variant="outline">
-            Danger
-          </CustomButton>
-          <CustomButton intent="warning" variant="outline">
-            Warning
-          </CustomButton>
-          <CustomButton intent="success" variant="outline">
-            Success
-          </CustomButton>
-          <CustomButton intent="light" variant="outline">
-            Light
-          </CustomButton>
-        </Group>
-        <Title className={cx(classes.title)} order={5}>
+        <CustomMantineButton
+          title="work"
+          className={cx(classes.responsiveButton)}
+        />
+        <CustomMantineButton title="product" bg="#0ca678" />
+
+        <Title order={5} mt="lg">
           Original Buttons
         </Title>
-        <Group>
-          <MantineButton color="blue.8">Primary</MantineButton>
-          <MantineButton color="indigo.4">Secondary</MantineButton>
-          <MantineButton color="orange.9">Danger</MantineButton>
-          <MantineButton color="yellow.9">Warning</MantineButton>
-          <MantineButton color="teal.9">Success</MantineButton>
-          <MantineButton color="dark.1">Light</MantineButton>
+        <Group mt="lg">
+          <MantineButton color="primary">Primary</MantineButton>
+          <MantineButton color="secondary">Secondary</MantineButton>
+          <MantineButton color="danger">Danger</MantineButton>
+          <MantineButton color="warning">Warning</MantineButton>
+          <MantineButton color="success">Success</MantineButton>
+          <MantineButton color="light">Light</MantineButton>
         </Group>
         <Group mt="lg">
           <MantineButton size="xs">xs</MantineButton>
@@ -186,19 +195,19 @@ export default function Home() {
         >
           <Tabs.List>
             <Tabs.Tab value="card" icon={<IconPlayCard size="1rem" />}>
-              <Title order={4} className={cx(classes.title)}>
+              <Title order={5} className={cx(classes.tabTitle)}>
                 Custom Card
               </Title>
             </Tabs.Tab>
 
             <Tabs.Tab value="os" icon={<IconNotification size="1rem" />}>
-              <Title order={4} className={cx(classes.title)}>
+              <Title order={5} className={cx(classes.tabTitle)}>
                 Your OS
               </Title>
             </Tabs.Tab>
 
             <Tabs.Tab value="hooks" icon={<IconHanger size="1rem" />}>
-              <Title order={4} className={cx(classes.title)}>
+              <Title order={5} className={cx(classes.tabTitle)}>
                 Mantine Hooks
               </Title>
             </Tabs.Tab>
