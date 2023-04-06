@@ -1,5 +1,5 @@
 {
-  "name": "mantine",
+  "name": "NextUI",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,12 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.10.6",
-    "@emotion/server": "^11.10.0",
-    "@mantine/core": "^6.0.4",
-    "@mantine/hooks": "^6.0.4",
-    "@mantine/next": "^6.0.4",
-    "@tabler/icons-react": "^2.11.0",
     "next": "latest",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
