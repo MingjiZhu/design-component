@@ -1,5 +1,5 @@
 {
-  "name": "daisyui",
+  "name": "nextui-with-tailwind",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,11 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "classnames": "^2.3.2",
-    "daisyui": "^2.51.5",
+    "@nextui-org/react": "1.0.0-beta.12",
     "next": "latest",
     "react": "^18.2.0",
-    "react-daisyui": "^3.1.1",
     "react-dom": "^18.2.0",
     "stylis-plugin-rtl": "^2.1.1",
     "ui": "workspace:*"
@@ -26,7 +24,7 @@
     "eslint-config-custom": "workspace:*",
     "postcss": "^8.4.20",
     "tailwind-config": "workspace:*",
-    "tailwindcss": "^3.2.4",
+    "tailwindcss": "^3.3.1",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.4"
   }

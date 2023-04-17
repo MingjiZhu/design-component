@@ -1,3 +1,4 @@
+import React from "react";
 import Document, {
   DocumentContext,
   DocumentInitialProps,
@@ -6,10 +7,7 @@ import Document, {
   Main,
   NextScript,
 } from "next/document";
-import { ServerStyles, createStylesServer } from "@mantine/next";
-import { rtlCache } from "../../rtl-cache";
-
-const stylesServer = createStylesServer(rtlCache);
+import { CssBaseline } from "@nextui-org/react";
 
 class MyDocument extends Document {
   static async getInitialProps(
@@ -19,21 +17,14 @@ class MyDocument extends Document {
 
     return {
       ...initialProps,
-      styles: [
-        initialProps.styles,
-        <ServerStyles
-          html={initialProps.html}
-          server={stylesServer}
-          key="styles"
-        />,
-      ],
+      styles: React.Children.toArray([initialProps.styles]),
     };
   }
 
   render() {
     return (
       <Html>
-        <Head />
+        <Head>{CssBaseline.flush()}</Head>
         <body>
           <Main />
           <NextScript />

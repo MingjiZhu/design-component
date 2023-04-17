@@ -12,6 +12,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ### Pros
 
+- easy customization
+- highly scalable when handling large and complex applications
+
 ### Cons
+
+- does not work with tailwind
+- complexity when styling
 
 ### Experience

@@ -1,5 +1,5 @@
 {
-  "name": "NextUI",
+  "name": "nextui-without-tailwind",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nextui-org/react": "1.0.0-beta.12",
+    "@tabler/icons-react": "^2.14.0",
     "next": "latest",
+    "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "stylis-plugin-rtl": "^2.1.1",
@@ -22,8 +25,6 @@
     "autoprefixer": "^10.4.13",
     "eslint-config-custom": "workspace:*",
     "postcss": "^8.4.20",
-    "tailwind-config": "workspace:*",
-    "tailwindcss": "^3.2.4",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.4"
   }
