@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>NextUI</title>
+        <title>NextUI-withoutT</title>
       </Head>
 
       <Container
@@ -39,7 +39,7 @@ export default function Home() {
         justify="center"
         alignItems="center"
       >
-        <Text h1>NextUI</Text>
+        <Text h1>NextUI Without Tailwind</Text>
         <div>
           The current theme is: {type}
           <Switch
