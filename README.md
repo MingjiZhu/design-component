@@ -52,3 +52,10 @@ cd with-tailwind
 pnpm install
 git init . && git add . && git commit -m "Init"
 ```
+
+| components library| has hooks |  has story book | components work with tailwind |
+| :-------: | :---: | :---: | :---: |
+| Mantine | yes | yes | no |
+| ChakraUI | yes | no | no |
+| daisyUI | no | no | yes |
+| NextUI | yes | no | no |

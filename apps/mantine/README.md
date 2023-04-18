@@ -24,7 +24,6 @@ Use Tailwind UI for layout and use free Mantine components
 ### Cons
 
 - can not apply tailwind css on Mantine components
-- custom components from ui is not showing
 
 ### Experience
 
